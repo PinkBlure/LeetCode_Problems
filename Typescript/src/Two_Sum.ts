@@ -6,15 +6,15 @@
 
 // You can return the answer in any order.
 
-const nums: number[] = [2,7,11,15]
-const target: number = 9
+const nums = [2,7,11,15]
+const target = 9
 
-function twoSum(nums: number[], target: number): number[] {
-    const numMap: Map<number, number> = new Map<number, number>()
+function twoSum(nums: readonly number[], target: number): number[] {
+    const numMap = new Map<number, number>()
     for (let i=0; i<nums.length; i++) {
-        const complement: number = target - nums[i]
+        const complement = target - nums[i]
         if (numMap.has(complement)) {
-            const index: number | undefined = numMap.get(complement)
+            const index = numMap.get(complement)
             if (index !== undefined) return [index, i]
         } numMap.set(nums[i], i)
     } return []
