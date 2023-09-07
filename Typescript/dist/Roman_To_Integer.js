@@ -22,6 +22,7 @@
 //     C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 function romanToInt(s) {
+    var _a;
     const romanMap = new Map([
         ['I', 1],
         ['V', 5],
@@ -34,7 +35,7 @@ function romanToInt(s) {
     let value = 0;
     let before = 0;
     for (const char of s) {
-        const current = romanMap.get(char) || 0;
+        const current = (_a = romanMap.get(char)) !== null && _a !== void 0 ? _a : 0;
         if (current > before)
             value += current - 2 * before;
         else
