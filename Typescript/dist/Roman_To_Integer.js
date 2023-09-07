@@ -33,23 +33,13 @@ function romanToInt(s) {
     ]);
     let value = 0;
     let before = 0;
-    for (let i = 0; i < s.length; i++) {
-        const aux = romanMap.get(s[i]);
-        const next = romanMap.get(s[i + 1]);
-        if (aux !== undefined) {
-            if (next !== undefined) {
-                if (aux < next)
-                    before = aux;
-                else if (before === 0)
-                    value += aux;
-                else {
-                    value += aux - before;
-                    before = 0;
-                }
-            }
-            else
-                value += aux - before;
-        }
+    for (const char of s) {
+        const current = romanMap.get(char) || 0;
+        if (current > before)
+            value += current - 2 * before;
+        else
+            value += current;
+        before = current;
     }
     return value;
 }
