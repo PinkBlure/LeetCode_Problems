@@ -42,7 +42,7 @@ function romanToInt(s: string): number {
     let before = 0
 
     for (const char of s) {
-        const current = romanMap.get(char) || 0
+        const current = romanMap.get(char) ?? 0
         if (current > before) value += current - 2 * before
         else value += current
         before = current
