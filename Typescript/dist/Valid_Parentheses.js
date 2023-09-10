@@ -19,9 +19,8 @@ function isValid(s) {
             buffer.push(char);
         else {
             const current = (_a = Array.from(parenthesisMap.entries()).find(([clave, valor]) => valor === char)) !== null && _a !== void 0 ? _a : "";
-            if (buffer[buffer.length - 1] === current[0]) {
+            if (buffer[buffer.length - 1] === current[0])
                 buffer.pop();
-            }
             else
                 return false;
         }
